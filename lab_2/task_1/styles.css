@@ -1,0 +1,179 @@
+:root {
+  --blue: #0866ff;
+  --blue-hover: #1877f2;
+  --green: #42b72a;
+  --green-hover: #36a420;
+
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f0f2f5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  min-height: 640px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  width: 100%;
+  gap: 50px;
+}
+
+.facebook {
+  position: relative;
+  top: -35px;
+  flex: 1;
+  max-width: 580px;
+}
+
+.logo {
+  height: 106px;
+  margin: -28px;
+}
+
+.slogan {
+  color: #1c1e21;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 32px;
+  padding-top: 16px;
+  width: 500px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form form {
+  display: flex;
+  flex-direction: column;
+
+  background-color: white;
+  border-radius: 8px;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 396px;
+}
+
+.login-form p {
+  margin-top: 28px;
+  color: #1c1e21;
+  font-size: 14px;
+  text-align: center;
+}
+
+.input-field {
+  border: 1px solid #dddfe2;
+  border-radius: 6px;
+  font-size: 17px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  outline: none;
+}
+
+.input-field:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 2px rgba(8, 102, 255, 0.1);
+}
+
+.login-btn {
+  background-color: var(--blue);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 14px 16px;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+
+.login-btn:hover {
+  background-color: var(--blue-hover);
+}
+
+.forgot-password {
+  color: var(--blue);
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #dadde1;
+  margin: 20px 0;
+}
+
+.create-account-btn {
+  background-color: var(--green);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 14px 16px;
+  cursor: pointer;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.create-account-btn:hover {
+  background-color: var(--green-hover);
+}
+
+footer {
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  height: 156px;
+}
+
+.footer-content {
+  max-width: 980px;
+  margin: 0 auto;
+  color: #1c1e21;
+  font-size: 14px;
+}
+
+@media only screen and (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .facebook {
+    text-align: center;
+  }
+
+  .login-form {
+    width: 100%;
+    max-width: 396px;
+  }
+}
