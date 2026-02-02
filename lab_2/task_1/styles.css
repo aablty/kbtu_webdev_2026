@@ -125,7 +125,7 @@ main {
   text-decoration: underline;
 }
 
-.divider {
+.login-form .divider {
   border: none;
   border-top: 1px solid #dadde1;
   margin: 20px 0;
@@ -149,17 +149,62 @@ main {
 }
 
 footer {
-  background-color: white;
-  padding: 20px;
-  text-align: center;
-  height: 156px;
+  background: white;
+  color: #737373;
+  font-size: 12px;
+  padding-top: 20px;
 }
 
 .footer-content {
-  max-width: 980px;
   margin: 0 auto;
-  color: #1c1e21;
-  font-size: 14px;
+  width: 980px;
+}
+
+footer .divider {
+  border-bottom: 1px solid #dddfe2;
+  font-size: 1px;
+  height: 8px;
+  margin-bottom: 8px;
+}
+
+.languages {
+  padding-top: 8px;
+  line-height: 1.6;
+  margin-left: -20px;
+}
+
+.links {
+  line-height: 1.6;
+  margin-left: -20px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  padding-left: 20px;
+  display: inline-block;
+}
+
+ul li a {
+  color: #8a8d91;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+ul li a:hover {
+  text-decoration: underline;
+}
+
+ul li button {
+  padding-inline: 8px;
+}
+
+.copyright {
+  margin: 20px 0;
 }
 
 @media only screen and (max-width: 900px) {
@@ -175,5 +220,12 @@ footer {
   .login-form {
     width: 100%;
     max-width: 396px;
+  }
+}
+
+@media only screen and (max-width: 1075px) {
+  .footer-content {
+    margin: 0 40px;
+    width: auto;
   }
 }
