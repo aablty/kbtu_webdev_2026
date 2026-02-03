@@ -256,8 +256,6 @@ button.secondary:hover {
 .plan-actions {
   margin-top: 8px;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
   gap: 8px;
 }
 
