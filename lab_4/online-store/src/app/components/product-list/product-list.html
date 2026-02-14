@@ -1,0 +1,39 @@
+<!-- loading -->
+@if (isLoading()) {
+  <div class="flex flex-col items-center justify-center gap-4 py-24">
+    <div class="relative">
+      <lucide-icon name="heart" class="h-12 w-12 animate-pulse text-primary"></lucide-icon>
+      <lucide-icon
+        name="sparkles"
+        class="absolute -right-2 -top-2 h-5 w-5 animate-bounce text-accent"
+      ></lucide-icon>
+    </div>
+    <p class="text-lg font-semibold text-muted-foreground">Loading your slay picks...</p>
+  </div>
+}
+
+<!-- empty -->
+@if (!isLoading() && products().length === 0) {
+  <div class="flex flex-col items-center justify-center gap-4 py-24">
+    <lucide-icon name="search-x" class="h-16 w-16 text-border"></lucide-icon>
+    <div class="text-center">
+      <p class="text-lg font-bold text-foreground">No products found, bestie</p>
+      <p class="mt-1 text-sm text-muted-foreground">
+        @if (searchQuery()) {
+          Nothing matches "{{ searchQuery() }}" - try something else!
+        } @else {
+          Something went wrong, try again later!
+        }
+      </p>
+    </div>
+  </div>
+}
+
+<!-- products -->
+@if (!isLoading() && products().length > 0) {
+  <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    @for (product of products(); track product.id) {
+      <app-product-card [product]="product"></app-product-card>
+    }
+  </div>
+}
