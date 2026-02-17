@@ -1,0 +1,22 @@
+<div class="flex items-center gap-1">
+  @for (i of getArray(fullStars()); track i) {
+    <lucide-icon name="star" class="h-4 w-4 fill-accent text-accent"></lucide-icon>
+  }
+
+  @if (hasHalf()) {
+    <div class="relative h-4 w-4">
+      <lucide-icon name="star" class="absolute h-4 w-4 text-border"></lucide-icon>
+      <div class="absolute overflow-hidden" style="width: 50%">
+        <lucide-icon name="star" class="h-4 w-4 fill-accent text-accent"></lucide-icon>
+      </div>
+    </div>
+  }
+
+  @for (i of getArray(emptyStars()); track i) {
+    <lucide-icon name="star" class="h-4 w-4 text-border"></lucide-icon>
+  }
+
+  <span class="ml-1 text-sm font-medium text-muted-foreground">
+    {{ rating() }}
+  </span>
+</div>
