@@ -39,7 +39,6 @@ class ProductService {
 
     try {
       const response = await fetch(url, { headers });
-      console.log(await response.text());
       const data: any = await response.json();
       const products = await Promise.all(
         data.data.cards.map(async (item: any) => {
