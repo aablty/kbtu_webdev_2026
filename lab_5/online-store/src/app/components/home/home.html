@@ -1,12 +1,10 @@
 <div class="min-h-screen bg-background">
   <!-- header -->
-  <app-store-header [searchQuery]="searchQuery" (searchChange)="onSearchChange($event)" />
+  <app-store-header />
 
   <main class="mx-auto max-w-7xl px-4 py-8 md:px-8">
     <!-- hero banner -->
-    <section
-      class="mb-10 overflow-hidden rounded-3xl border border-border bg-card p-8 text-center md:p-12"
-    >
+    <section class="mb-6 overflow-hidden rounded-3xl border border-border bg-card p-6 text-center">
       <div class="flex items-center justify-center gap-2">
         <span class="text-xs font-bold uppercase tracking-widest text-accent">
           Slay Queen Approved
@@ -21,35 +19,71 @@
       </p>
     </section>
 
-    <!-- active search-->
-    @if (activeQuery) {
-      <div class="mb-6 flex items-center gap-3">
-        <p class="text-sm text-muted-foreground">
-          Results for
-          <span class="font-bold text-foreground"> "{{ activeQuery }}" </span>
-        </p>
-        <button
-          type="button"
-          (click)="clearSearch()"
-          class="rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
-        >
-          Clear search
-        </button>
+    @if (error()) {
+      <div class="mb-6 rounded-lg bg-red-100 px-4 py-3 text-sm text-red-700" role="alert">
+        {{ error() }}
       </div>
     }
+    <section class="grid gap-6 grid-cols-[280px_1fr]">
+      <app-filters
+        [categories]="categories()"
+        (categoryChange)="onCategoryChange($event)"
+      ></app-filters>
 
-    <!-- products -->
-    <app-product-list
-      [products]="products"
-      [isLoading]="loading"
-      [searchQuery]="searchQuery"
-    ></app-product-list>
+      <div>
+        <div class="mb-4 flex items-center justify-between gap-3">
+          <app-store-search
+            [searchQuery]="searchQuery()"
+            (searchSubmit)="onSearchSubmit($event)"
+            class="flex-1"
+          ></app-store-search>
+          <app-sort-menu
+            [sortOption]="sortOption()"
+            (sortChange)="onSortChange($event)"
+          ></app-sort-menu>
+        </div>
+
+        <!-- active search-->
+        @if (activeQuery()) {
+          <div class="mb-3 flex items-center justify-between gap-3">
+            <p class="text-sm text-muted-foreground">
+              <span class="font-bold text-foreground"> "{{ activeQuery() }}" </span>
+              @if (total()) {
+                <span class="text-xs"> {{ total() }} found </span>
+                <span class="text-xs">({{ totalPages() }} pages)</span>
+              }
+            </p>
+            <button
+              type="button"
+              (click)="clearSearch()"
+              class="rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
+            >
+              Clear search
+            </button>
+          </div>
+        }
+
+        <app-product-list
+          [products]="products()"
+          [isLoading]="loading()"
+          [searchQuery]="searchQuery()"
+        ></app-product-list>
+
+        @if ((totalPages() ?? 0) > 1) {
+          <app-pagination
+            [currentPage]="currentPage()"
+            [totalPages]="totalPages()"
+            (pageChange)="onPageChange($event)"
+          ></app-pagination>
+        }
+      </div>
+    </section>
   </main>
 
   <!-- footer -->
   <footer class="border-t border-border bg-card py-8 text-center">
     <div class="flex items-center justify-center gap-2">
-      <span class="font-serif text-lg font-bold text-primary"> PickMe </span>
+      <span class="font-serif text-lg font-bold text-primary"> PickMe Store </span>
     </div>
     <p class="mt-2 text-xs text-muted-foreground">Made with love for slay queens everywhere</p>
     <p class="mt-1 text-xs text-muted-foreground">

@@ -9,6 +9,8 @@ import { LucideAngularModule } from 'lucide-angular';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ImageGallery {
+  readonly placeholderSrc = '/placeholder.svg';
+
   images = input.required<string[]>();
   productName = input.required<string>();
 
@@ -25,5 +27,9 @@ export class ImageGallery {
 
   selectImage(index: number) {
     this.selectedIndex = index;
+  }
+
+  isPlaceholder(src: string | undefined | null) {
+    return !src || src === this.placeholderSrc;
   }
 }

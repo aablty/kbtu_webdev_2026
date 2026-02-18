@@ -1,7 +1,11 @@
 export { Home } from './home/home';
 export { StoreHeader } from './store-header/store-header';
+export { StoreSearch } from './store-search/store-search';
+export { SortMenu } from './sort-menu/sort-menu';
 export { ProductList } from './product-list/product-list';
 export { ProductCard } from './product-card/product-card';
 export { ImageGallery } from './image-gallery/image-gallery';
 export { StarRating } from './star-rating/star-rating';
 export { ShareButton } from './share-button/share-button';
+export { FiltersComponent } from './filters/filters';
+export { Pagination } from './pagination/pagination';

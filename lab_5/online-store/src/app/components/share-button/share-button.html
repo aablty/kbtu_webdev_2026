@@ -1,12 +1,11 @@
-<div class="relative">
+<div class="h-full relative">
   <button
     type="button"
     (click)="toggleDropdown()"
-    class="flex items-center gap-1.5 rounded-full bg-secondary px-3 py-1.5 text-xs font-medium text-secondary-foreground transition-all hover:bg-primary hover:text-primary-foreground active:scale-95"
+    class="h-full flex items-center gap-1.5 rounded-full bg-secondary px-3 py-1.5 text-xs font-medium text-secondary-foreground transition-all hover:bg-primary hover:text-primary-foreground active:scale-95"
     [attr.aria-label]="'Share ' + productName()"
   >
     <lucide-icon name="share-2" class="h-3.5 w-3.5"></lucide-icon>
-    Share
   </button>
 
   @if (isOpen) {

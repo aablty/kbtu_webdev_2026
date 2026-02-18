@@ -13,7 +13,7 @@
 }
 
 <!-- empty -->
-@if (!isLoading() && products().length === 0) {
+@if (!isLoading() && visibleProducts().length === 0) {
   <div class="flex flex-col items-center justify-center gap-4 py-24">
     <lucide-icon name="search-x" class="h-16 w-16 text-border"></lucide-icon>
     <div class="text-center">
@@ -30,10 +30,15 @@
 }
 
 <!-- products -->
-@if (!isLoading() && products().length > 0) {
+@if (!isLoading() && visibleProducts().length > 0) {
   <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-    @for (product of products(); track product.id) {
-      <app-product-card [product]="product"></app-product-card>
+    @for (product of visibleProducts(); track product.id) {
+      <app-product-card
+        [product]="product"
+        [likes]="getLikes(product.id)"
+        (likeProduct)="onLikeProduct($event)"
+        (deleteProduct)="onDeleteProduct($event)"
+      ></app-product-card>
     }
   </div>
 }
