@@ -24,7 +24,7 @@
         {{ error() }}
       </div>
     }
-    <section class="grid gap-6 grid-cols-[280px_1fr]">
+    <section id="products" class="grid gap-6 grid-cols-[280px_1fr]">
       <app-filters
         [categories]="categories()"
         (categoryChange)="onCategoryChange($event)"

@@ -11,9 +11,7 @@ app.use(express.json());
 app.get("/products", async (req: Request, res: Response) => {
   const text = (req.query["text"] as string) ?? "";
   const page = ((req.query["page"] as string) ?? "0").toString();
-  const q =
-    (req.query["q"] as string) ??
-    ":availableInZones:Magnum_ZONE1";
+  const q = (req.query["q"] as string) ?? "";
 
   const sort = (req.query["sort"] as string) ?? "relevance";
 
@@ -22,7 +20,7 @@ app.get("/products", async (req: Request, res: Response) => {
 
 app.get("/categories", async (req: Request, res: Response) => {
   const text = (req.query["text"] as string) ?? "";
-  const q = (req.query["q"] as string) ?? ":availableInZones:Magnum_ZONE1";
+  const q = (req.query["q"] as string) ?? "";
 
   res.json(await ProductService.getCategories(text, q));
 });
@@ -119,7 +117,7 @@ class ProductService {
   ): string {
     const url = new URL(`${this.KASPI_PRODUCTS_API_BASE_URL}/results`);
     url.searchParams.set("page", page);
-    url.searchParams.set("q", q);
+    url.searchParams.set("q", ":availableInZones:Magnum_ZONE1" + q);
     url.searchParams.set("text", text);
     url.searchParams.set("sort", sort);
     url.searchParams.set("qs", "");
@@ -136,7 +134,7 @@ class ProductService {
     url.searchParams.set("all", "false");
     url.searchParams.set("fl", "true");
     url.searchParams.set("ui", "d");
-    url.searchParams.set("q", q);
+    url.searchParams.set("q", ":availableInZones:Magnum_ZONE1" + q);
     url.searchParams.set("i", "-1");
     url.searchParams.set("c", "750000000");
     return url.toString();

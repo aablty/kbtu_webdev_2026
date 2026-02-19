@@ -15,12 +15,14 @@ export class Pagination {
   private readonly visiblePages = 5;
 
   onPrevious() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     if (this.currentPage() > 0) {
       this.pageChange.emit(this.currentPage() - 1);
     }
   }
 
   onNext() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     const total = this.totalPages();
     if (total && this.currentPage() < total - 1) {
       this.pageChange.emit(this.currentPage() + 1);
@@ -28,6 +30,7 @@ export class Pagination {
   }
 
   onPageClick(page: number) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     this.pageChange.emit(page);
   }
 
