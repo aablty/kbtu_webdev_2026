@@ -10,6 +10,7 @@ import { LucideAngularModule } from 'lucide-angular';
 })
 export class StarRating {
   rating = input.required<number>();
+  reviewsQuantity = input<number>(0);
 
   fullStars = computed(() => Math.floor(this.rating()));
   hasHalf = computed(() => this.rating() - this.fullStars() >= 0.3);

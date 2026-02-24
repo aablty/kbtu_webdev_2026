@@ -15,7 +15,7 @@
       [innerHTML]="product().description"
     ></p>
 
-    <app-star-rating [rating]="product().rating"></app-star-rating>
+    <app-star-rating [rating]="product().rating" [reviewsQuantity]="product().reviewsQuantity"></app-star-rating>
 
     <p class="text-lg font-extrabold text-primary">
       {{ formattedPrice() }}

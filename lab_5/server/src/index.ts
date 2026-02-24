@@ -37,6 +37,7 @@ export interface Product {
   description: string;
   price: number;
   rating: number;
+  reviewsQuantity: number;
   image: string;
   images: string[];
   link: string;
@@ -67,6 +68,7 @@ class ProductService {
             description: description,
             price: item.unitSalePrice,
             rating: item.rating,
+            reviewsQuantity: item.reviewsQuantity ?? 0,
             image: item.previewImages[0].large,
             images: item.previewImages.map((img: any) => img.large),
             link: this.KASPI_SHOP_BASE_URL + item.shopLink,
