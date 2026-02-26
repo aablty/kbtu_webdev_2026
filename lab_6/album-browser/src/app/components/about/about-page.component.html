@@ -1,0 +1,33 @@
+<div class="flex min-h-[calc(100vh-73px)] items-center justify-center px-6 py-16">
+  <div class="flex max-w-xl flex-col items-center gap-8 text-center">
+    <h1 class="font-serif text-5xl font-bold text-foreground">About This App</h1>
+    <div class="flex flex-col gap-4 rounded-2xl border-2 border-border bg-card p-8 shadow-lg">
+      <p class="leading-relaxed text-foreground">
+        This is the PickMe Album Browser, a super cute album management app built with Angular and
+        the JSONPlaceholder API.
+      </p>
+      <div class="my-2 h-px bg-border"></div>
+      <div class="flex flex-col gap-2 text-sm text-muted-foreground">
+        <p>
+          <span class="font-semibold text-secondary-foreground">Developer: </span>Nurgali Nursultan
+        </p>
+        <p><span class="font-semibold text-secondary-foreground">Course: </span>Web Development</p>
+        <p>
+          <span class="font-semibold text-secondary-foreground">Tech Stack: </span>Angular,
+          TypeScript, Tailwind CSS
+        </p>
+      </div>
+      <div class="my-2 h-px bg-border"></div>
+      <p class="text-sm leading-relaxed text-muted-foreground">
+        Browse albums, view details, edit titles, and explore photo galleries. All data comes from
+        the JSONPlaceholder REST API.
+      </p>
+    </div>
+    <a
+      routerLink="/albums"
+      class="rounded-full bg-primary px-8 text-primary-foreground shadow-lg hover:bg-primary/90 py-2 flex items-center gap-2"
+    >
+      Go Browse Albums
+    </a>
+  </div>
+</div>

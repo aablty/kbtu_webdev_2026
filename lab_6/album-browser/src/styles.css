@@ -1,0 +1,58 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-background: #fff0f5;
+  --color-foreground: #4a0e2b;
+  --color-card: #ffffff;
+  --color-card-foreground: #4a0e2b;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #4a0e2b;
+  --color-primary: #ff69b4;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #ffe4f0;
+  --color-secondary-foreground: #9b1b5a;
+  --color-muted: #fce4ec;
+  --color-muted-foreground: #b05080;
+  --color-accent: #ff1493;
+  --color-accent-foreground: #ffffff;
+  --color-destructive: #e91e63;
+  --color-destructive-foreground: #ffffff;
+  --color-border: #f8bbd0;
+  --color-input: #f8bbd0;
+  --color-ring: #ff69b4;
+  --color-chart-1: #ff69b4;
+  --color-chart-2: #ff1493;
+  --color-chart-3: #e91e63;
+  --color-chart-4: #f06292;
+  --color-chart-5: #f48fb1;
+  --color-radius: 1rem;
+  --color-sidebar: #ffe4f0;
+  --color-sidebar-foreground: #4a0e2b;
+  --color-sidebar-primary: #ff69b4;
+  --color-sidebar-primary-foreground: #ffffff;
+  --color-sidebar-accent: #fce4ec;
+  --color-sidebar-accent-foreground: #9b1b5a;
+  --color-sidebar-border: #f8bbd0;
+  --color-sidebar-ring: #ff69b4;
+
+  --font-sans: 'Quicksand', 'Quicksand Fallback', sans-serif;
+  --font-serif: 'Dancing Script', 'Dancing Script Fallback', cursive;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

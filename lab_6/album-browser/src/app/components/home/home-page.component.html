@@ -1,0 +1,32 @@
+<div class="flex min-h-[calc(100vh-73px)] flex-col items-center justify-center px-6">
+  <div class="flex max-w-2xl flex-col items-center gap-8 text-center">
+    <h1 class="font-serif text-6xl font-bold tracking-tight text-foreground md:text-7xl">
+      PickMe Albums
+    </h1>
+
+    <p class="max-w-md text-lg leading-relaxed text-muted-foreground">
+      The cutest little album browser you've ever seen. Browse, search, and explore albums like the
+      main character you are.
+    </p>
+
+    <div class="flex flex-col items-center gap-4 sm:flex-row">
+      <button
+        routerLink="/albums"
+        class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 aria-invalid:border-destructive h-10 has-[>svg]:px-4 rounded-full bg-accent px-8 text-accent-foreground shadow-lg hover:bg-accent/90"
+      >
+        <lucide-icon name="music" class="h-5 w-5 flex items-center" />
+        Browse Albums
+      </button>
+      <button
+        routerLink="/about"
+        class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 aria-invalid:border-destructive bg-background shadow-xs h-10 has-[>svg]:px-4 rounded-full border-2 border-primary px-8 text-primary hover:bg-primary hover:text-primary-foreground"
+      >
+        About Me
+      </button>
+    </div>
+
+    <div class="mt-8 flex items-center gap-2 text-sm text-muted-foreground">
+      <span>100 albums waiting just for you, bestie</span>
+    </div>
+  </div>
+</div>

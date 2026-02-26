@@ -1,0 +1,46 @@
+<div class="mx-auto max-w-5xl px-6 py-10">
+  <a
+    [routerLink]="['/albums', id]"
+    class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 aria-invalid:border-destructive h-9 px-4 py-2 has-[>svg]:px-3 mb-6 rounded-full text-muted-foreground hover:bg-secondary hover:text-secondary-foreground"
+  >
+    ← Back to Album
+  </a>
+  <div class="mb-8 text-center">
+    <h1 class="font-serif text-4xl font-bold text-foreground">Album {{ id }} Photos</h1>
+    <p class="mt-2 text-sm text-muted-foreground">So aesthetic, so slay</p>
+  </div>
+  @if (isLoading) {
+    <div class="flex flex-col items-center gap-3 py-20">
+      <lucide-icon name="loader2" class="h-8 w-8 animate-spin text-primary" />
+      <p class="text-sm text-muted-foreground">Loading photos...</p>
+    </div>
+  }
+  @if (error) {
+    <div class="flex flex-col items-center gap-2 py-20">
+      <p class="text-sm text-destructive">Failed to load photos.</p>
+    </div>
+  }
+
+  @if (photos && photos.length) {
+    <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+      <div
+        *ngFor="let photo of photos"
+        class="group relative overflow-hidden rounded-2xl border-2 border-border bg-card shadow-sm transition-all hover:border-primary hover:shadow-md"
+      >
+        <div class="aspect-square">
+          <img
+            [src]="photo.thumbnailUrl"
+            [alt]="photo.title"
+            class="h-full w-full object-cover transition-transform group-hover:scale-105"
+            crossorigin="anonymous"
+          />
+        </div>
+        <div
+          class="absolute inset-x-0 bottom-0 bg-card/90 p-2 opacity-0 backdrop-blur-sm transition-opacity group-hover:opacity-100"
+        >
+          <p class="line-clamp-2 text-xs text-card-foreground">{{ photo.title }}</p>
+        </div>
+      </div>
+    </div>
+  }
+</div>
