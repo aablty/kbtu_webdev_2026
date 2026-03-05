@@ -8,19 +8,19 @@ def main() -> None:
         Bicycle("Trek", "FX 2", 2023, gear_count=18, has_bell=True),
     ]
 
-    print("=== Vehicle Objects ===")
+    print("vehicle objects:")
     for vehicle in vehicles:
         print(vehicle)
 
-    print("\n=== Shared Behavior ===")
+    print("\nshared behavior:")
     for vehicle in vehicles:
         print(vehicle.start())
 
-    print("\n=== Polymorphism (drive overridden) ===")
+    print("\npolymorphism (drive method):")
     for vehicle in vehicles:
         print(vehicle.drive())
 
-    print("\n=== Child-specific Methods ===")
+    print("\nchild-specific behavior:")
     for vehicle in vehicles:
         if isinstance(vehicle, Car):
             print(vehicle.honk())
