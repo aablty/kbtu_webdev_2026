@@ -33,8 +33,21 @@
       <p class="text-sm text-muted-foreground">No albums found, try a different search!</p>
     </div>
   }
+
+  <div class="mb-6 flex items-center justify-center gap-2">
+    @for (page of pagesArray(); track page) {
+      <button
+        (click)="currentPage = page"
+        [disabled]="currentPage === page"
+        class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 aria-invalid:border-destructive size-9 rounded-full text-muted-foreground hover:bg-secondary/10 hover:text-secondary"
+      >
+        {{ page }}
+      </button>
+    }
+  </div>
+  
   <div class="flex flex-col gap-3">
-    @for (album of filteredAlbums; track album) {
+    @for (album of paginatedAlbums(currentPage); track album) {
       <a
         [routerLink]="['/albums', album.id]"
         class="group flex items-center gap-4 rounded-2xl border-2 border-border bg-card p-4 shadow-sm transition-all hover:border-primary hover:shadow-md"
@@ -66,4 +79,38 @@
       </a>
     }
   </div>
+
+  <!-- <div class="flex flex-col gap-3">
+    @for (album of filteredAlbums; track album) {
+      <a
+        [routerLink]="['/albums', album.id]"
+        class="group flex items-center gap-4 rounded-2xl border-2 border-border bg-card p-4 shadow-sm transition-all hover:border-primary hover:shadow-md"
+      >
+        <div
+          class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-secondary text-sm font-bold text-secondary-foreground"
+        >
+          {{ album.id }}
+        </div>
+        <p
+          class="flex-1 text-sm font-medium leading-relaxed text-card-foreground group-hover:text-accent"
+        >
+          {{ album.title }}
+        </p>
+        <button
+          type="button"
+          class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 aria-invalid:border-destructive size-9 shrink-0 rounded-full text-muted-foreground hover:bg-destructive/10 hover:text-destructive"
+          (click)="handleDelete($event, album.id)"
+          [disabled]="deletingId === album.id"
+          [attr.aria-label]="'Delete album ' + album.id"
+        >
+          @if (deletingId === album.id) {
+            <lucide-icon name="loader2" class="h-4 w-4 animate-spin" />
+          }
+          @if (deletingId !== album.id) {
+            <lucide-icon name="trash2" class="h-4 w-4" />
+          }
+        </button>
+      </a>
+    }
+  </div> -->
 </div>

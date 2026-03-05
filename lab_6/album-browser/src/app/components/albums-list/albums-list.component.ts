@@ -19,6 +19,7 @@ export class AlbumsListComponent implements OnInit {
   isLoading = true;
   error = '';
   deletingId: number | null = null;
+  currentPage = 1;
 
   constructor(
     private albumService: AlbumService,
@@ -73,5 +74,19 @@ export class AlbumsListComponent implements OnInit {
         this.cdr.detectChanges();
       },
     });
+  }
+
+  paginatedAlbums(page: number) {
+    return this.filteredAlbums.slice((page - 1) * 10, page * 10);
+  }
+
+  totalPages() {
+    return Math.ceil(this.filteredAlbums.length / 10);
+  }
+
+  pagesArray() {
+    return Array(this.totalPages())
+      .fill(0)
+      .map((_, i) => i + 1);
   }
 }
